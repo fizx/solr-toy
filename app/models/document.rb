@@ -1,3 +1,3 @@
 class Document < ActiveRecord::Base
-  acts_as_solr :fields => [:title, :content]
+  acts_as_solr
 end

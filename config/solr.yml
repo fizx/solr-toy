@@ -4,14 +4,7 @@
 # them in your Solr config file
 
 development:
-  url: http://127.0.0.1:8982/solr
-  
+  url: http://alpha.websolr.com/solr/631f4248d3b-0-0/
 production:
-  url: http://174.143.247.165/proxy/toy/
-  jvm_options: -server -d64 -Xmx1024M -Xms64M
-  username: toy
-  password: toytoy
-
-test:
-  url: http://127.0.0.1:8981/solr
-
+  url: http://alpha.websolr.com/solr/631f4248d3b-0-0/
+  
