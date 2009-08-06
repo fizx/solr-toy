@@ -29,6 +29,10 @@ class Solr::Connection
   #     :autocommit => :on)
 
   def initialize(url="http://localhost:8983/solr", opts={})
+    @user = opts["username"]
+    @pwd = opts["password"]
+    @auth = @user && @pwd
+    
     @url = URI.parse(url)
     unless @url.kind_of? URI::HTTP
       raise "invalid http url: #{url}"
@@ -155,9 +159,13 @@ class Solr::Connection
   # send the http post request to solr; for convenience there are shortcuts
   # to some requests: add(), query(), commit(), delete() or send()
   def post(request)
-    response = @connection.post(@url.path + "/" + request.handler,
-                                request.to_s,
-                                { "Content-Type" => request.content_type })
+    post = Net::HTTP::Post.new(@url.path + "/" + request.handler)
+    if @auth
+      post.basic_auth @user, @pwd
+    end
+    post.body = request.to_s
+    post.content_type = request.content_type
+    response = @connection.start {|http| http.request(post) }
   
     case response
     when Net::HTTPSuccess then response.body
@@ -168,6 +176,14 @@ class Solr::Connection
   end
   
 private
+
+  def auth_headers
+    if @auth
+      
+    else
+      return {}
+    end
+  end
   
   def create_and_send_query(klass, options = {}, &action)
     request = klass.new(options)

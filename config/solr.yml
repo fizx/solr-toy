@@ -7,8 +7,10 @@ development:
   url: http://127.0.0.1:8982/solr
   
 production:
-  url: http://174.143.247.165/solr/<shardname>/
+  url: http://174.143.247.165/proxy/toy/
   jvm_options: -server -d64 -Xmx1024M -Xms64M
+  username: toy
+  password: toytoy
 
 test:
   url: http://127.0.0.1:8981/solr
