@@ -1,0 +1,8 @@
+--- 
+vendor/plugins/acts_as_solr: 
+  squashed: true
+  url: git://github.com/mattmatt/acts_as_solr.git
+  type: git
+  revision: 067d37879e88fd3c2d74fcc22263aff0f55ac1cc
+  branch: master
+  remote: braid/vendor/plugins/acts-as-solr
