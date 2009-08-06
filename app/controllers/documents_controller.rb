@@ -2,7 +2,13 @@ class DocumentsController < ApplicationController
   # GET /documents
   # GET /documents.xml
   def index
-    @documents = Document.all
+    if params[:q].present?
+      solr = Document.find_by_solr(params[:q])
+      @documents = solr.results
+      @results = solr.total
+    else
+      @documents = Document.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

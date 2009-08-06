@@ -1,5 +1,13 @@
 <h1>Listing documents</h1>
 
+<form method="get">
+	<%=text_field_tag "q", params[:q]%>
+	<input type="submit" value="Search!">
+</form>
+<hr/>
+<%=@results ? "#{@results} results" : "not searching, showing all docs"%>
+<hr/>
+
 <table>
   <tr>
     <th>Title</th>
@@ -8,8 +16,8 @@
 
 <% @documents.each do |document| %>
   <tr>
-    <td><%=h document.title %></td>
-    <td><%=h document.content %></td>
+    <td><%=h truncate(document.title) %></td>
+    <td><%=h truncate(document.content) %></td>
     <td><%= link_to 'Show', document %></td>
     <td><%= link_to 'Edit', edit_document_path(document) %></td>
     <td><%= link_to 'Destroy', document, :confirm => 'Are you sure?', :method => :delete %></td>
