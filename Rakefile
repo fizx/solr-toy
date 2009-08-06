@@ -8,3 +8,9 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 
 require 'tasks/rails'
+require "pp"
+
+task :env do 
+  pp RAILS_ENV
+  pp ENV
+end
