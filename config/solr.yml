@@ -6,4 +6,4 @@
 development:
   url: http://127.0.0.1:3002/solr/proxy/1bdd653dda1/
 production:
-  url: http://75.101.199.21/solr/proxy/631f4248d3b/
+  url: http://index.websolr.com/solr/proxy/cf882eb1c0e/
