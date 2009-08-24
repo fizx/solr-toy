@@ -4,6 +4,6 @@
 # them in your Solr config file
 
 development:
-  url: http://127.0.0.1:3002/solr/proxy/1bdd653dda1/
+  url: http://127.0.0.1:8983/solr/proxy/5af7bc69f4e/
 production:
-  url: http://index.websolr.com/solr/proxy/cf882eb1c0e/
+  url: http://index.websolr.com/solr/proxy/756a8ae020e/
