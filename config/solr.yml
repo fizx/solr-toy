@@ -7,4 +7,4 @@ development:
   url: http://127.0.0.1:8983/solr/proxy/b3dfb04eac1/
 production:
   url: http://staging-index-alt.websolr.com/solr/proxy/5af7bc69f4e/
-  # url: http://index.websolr.com/solr/proxy/756a8ae020e/
+  # url: http://index.websolr.com/solr/proxy/756a8ae020e/ 
